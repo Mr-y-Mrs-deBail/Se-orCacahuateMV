@@ -8,19 +8,20 @@
     <link rel="icon" href="img/bob01.gif" type="image/gif">
     <title>MV</title>
 </head>
+
 <body>
     
     <div class="container mt-5 text-center">
-        <img id="tituloImagen" class="texto1" src="img/titulo03.png" alt="MV">
+        <img id="tituloDinamico" class="texto1" src="img/titulo03.png" alt="MV">
     </div>
-
+    
     <div id="mvplayer" class="container mt-5">
         <div class="d-flex justify-content-center align-items-center" style="height: auto; width: 100%;">
             <iframe id="youtubeVideo" width="600" height="340" 
-                src="https://drive.google.com/file/d/1o0KOcrho5tQ0smnimbN32brxWeQXm-TN/preview" 
-                title="Video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            src="https://drive.google.com/file/d/1o0KOcrho5tQ0smnimbN32brxWeQXm-TN/preview" 
+            title="Video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
             </iframe>
         </div>
         
@@ -29,7 +30,7 @@
             Your browser does not support the video tag.
         </video>
     </div>
-
+    
     <div class="container mt-3">
         <div class="d-flex flex-column align-items-center">
             <button class="btn btnCap mb-3" type="button" data-toggle="collapse" data-target="#mvplaylist" aria-expanded="false" aria-controls="mvplaylist">
@@ -38,8 +39,16 @@
             
             <div id="mvplaylist" class="collapse">
                 <ul class="list-unstyled" id="playlist">
-                    <li class="active">
-                        <a href="javascript:void(0)" onclick="changeVideo('1o0KOcrho5tQ0smnimbN32brxWeQXm-TN', this)">Bob Esponja</a>
+                    <li class="bob-item active">
+                        <a href="javascript:void(0)" onclick="changeVideo('1o0KOcrho5tQ0smnimbN32brxWeQXm-TN', this, 'bob')">
+                            <span class="anchor-icon"></span>Bob Esponja
+                        </a>
+                    </li>
+                    
+                    <li class="pokemon-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1FDFjpUcYcy0Lvf_vmV2x6HLxqF3dRlHy', this, 'pokemon')">
+                            <img class="pikachu" src="img/pikachu.gif" alt="MV"> Pokémon1
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -50,26 +59,51 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <script>
-        function changeVideo(idOrUrl, element) {
+   <script>
+        function changeVideo(idOrUrl, element, tema) {
             const videoPlayer = document.getElementById('videoPlayer');
             const youtubeVideo = document.getElementById('youtubeVideo');
+            const body = document.body;
+            const titulo = document.getElementById('tituloDinamico');
 
             if (idOrUrl.length > 20) { 
-                videoPlayer.pause();
-                videoPlayer.style.display = 'none';
-                youtubeVideo.style.display = 'block';
-                youtubeVideo.src = `https://drive.google.com/file/d/${idOrUrl}/preview`;
+                if (videoPlayer) {
+                    videoPlayer.pause();
+                    videoPlayer.style.display = 'none';
+                }
+                if (youtubeVideo) {
+                    youtubeVideo.style.display = 'block';
+                    youtubeVideo.src = `https://drive.google.com/file/d/${idOrUrl}/preview`;
+                }
             }
-
+            
+            if (tema === 'pokemon') {
+                body.classList.add('tema-pokemon');
+                body.classList.remove('tema-bob');
+                if (titulo) {
+                    titulo.src = 'img/titulo4.png';
+                }
+            } else {
+                body.classList.add('tema-bob');
+                body.classList.remove('tema-pokemon');
+                if (titulo) {
+                    titulo.src = 'img/titulo03.png';
+                }
+            }
+            
             const items = document.querySelectorAll('#playlist li');
             items.forEach(item => item.classList.remove('active'));
+            
             if (element) {
                 const parentLi = element.closest('li');
-                if(parentLi) parentLi.classList.add('active');
+                if (parentLi) {
+                    parentLi.classList.add('active');
+                    parentLi.classList.add('visto');
+                    localStorage.setItem('visto_' + idOrUrl, 'true');
+                }
             }
         }
-
+        
         window.onload = function() {
             const links = document.querySelectorAll('#playlist a');
             links.forEach(link => {
@@ -80,7 +114,7 @@
                         const id = match[1];
                         if (localStorage.getItem('visto_' + id) === 'true') {
                             const li = link.closest('li');
-                            if(li) li.classList.add('visto');
+                            if (li) li.classList.add('visto');
                         }
                     }
                 }

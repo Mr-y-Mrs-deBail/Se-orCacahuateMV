@@ -45,9 +45,15 @@
                         </a>
                     </li>
                     
+                    <li class="bob2-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1E5QZ9G0qumbrDmnsF-l2ZAdqQRxCIGc6', this, 'bob2')">
+                            <span class="anchor-icon"></span>Bob Esponja 2025
+                        </a>
+                    </li>
+                    
                     <li class="pokemon-item">
                         <a href="javascript:void(0)" onclick="changeVideo('1FDFjpUcYcy0Lvf_vmV2x6HLxqF3dRlHy', this, 'pokemon')">
-                            <img class="pikachu" src="img/pikachu.gif" alt="MV"> Pokémon1
+                            <img class="pikachu" src="img/pikachu.gif" alt="MV"> Pokémon 1
                         </a>
                     </li>
                 </ul>
@@ -59,13 +65,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-   <script>
+    <script>
         function changeVideo(idOrUrl, element, tema) {
             const videoPlayer = document.getElementById('videoPlayer');
             const youtubeVideo = document.getElementById('youtubeVideo');
             const body = document.body;
             const titulo = document.getElementById('tituloDinamico');
-
+            
             if (idOrUrl.length > 20) { 
                 if (videoPlayer) {
                     videoPlayer.pause();
@@ -79,13 +85,19 @@
             
             if (tema === 'pokemon') {
                 body.classList.add('tema-pokemon');
-                body.classList.remove('tema-bob');
+                body.classList.remove('tema-bob', 'tema-bob2');
                 if (titulo) {
                     titulo.src = 'img/titulo4.png';
                 }
+            } else if (tema === 'bob2') {
+                body.classList.add('tema-bob2');
+                body.classList.remove('tema-bob', 'tema-pokemon');
+                if (titulo) {
+                    titulo.src = 'img/titulo04.png';
+                }
             } else {
                 body.classList.add('tema-bob');
-                body.classList.remove('tema-pokemon');
+                body.classList.remove('tema-pokemon', 'tema-bob2');
                 if (titulo) {
                     titulo.src = 'img/titulo03.png';
                 }

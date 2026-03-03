@@ -28,6 +28,10 @@ body.tema-pokemon::before {
     background-image: url('img/fondo4.jpg') !important;
 }
 
+body.tema-bob2::before {
+    background-image: url('img/fondo5.jpg') !important;
+}
+
 .texto1 {
     max-width: 23%;
     height: auto; 
@@ -68,21 +72,15 @@ body.tema-pokemon .btnCap {
     box-shadow: 0 5px 0 #8b0000;
 }
 
-.btnCap {
-    background-color: #f6e013;
-    color: #4b3018;
-    border: 3px solid #fff;
-    border-radius: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px 25px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 5px 0 #d1bd0a;
+body.tema-bob2 .btnCap {
+    background-color: #2f4f4f;
+    color: #a2ffb3;
+    border: 3px solid #4ade80;
+    box-shadow: 0 5px 0 #1a3030;
 }
 
 body.tema-bob .btnCap:hover,
-body:not(.tema-pokemon) .btnCap:hover {
+body:not(.tema-pokemon):not(.tema-bob2) .btnCap:hover {
     background-color: #fff;
     color: #f6e013;
     box-shadow: 0 0 20px #f6e013, 0 0 40px #f6e013 !important;
@@ -97,13 +95,16 @@ body.tema-pokemon .btnCap:hover {
     border-color: #000;
 }
 
+body.tema-bob2 .btnCap:hover {
+    background-color: #4ade80;
+    color: #1a3030;
+    box-shadow: 0 0 20px #4ade80, 0 0 40px #4ade80 !important;
+    transform: translateY(-3px);
+}
+
 .btnCap:active {
     transform: translateY(1px);
     box-shadow: 0 2px 0 #d1bd0a;
-}
-
-body.tema-pokemon .btnCap:active {
-    box-shadow: 0 2px 0 #000;
 }
 
 #mvplaylist {
@@ -126,6 +127,11 @@ body.tema-pokemon #mvplaylist {
     border-color: #ffffff !important; 
 }
 
+body.tema-bob2 #mvplaylist {
+    border-color: #4ade80 !important;
+    background: rgba(26, 48, 48, 0.95);
+}
+
 #mvplaylist ul { margin: 0; padding: 0; }
 
 #mvplaylist li {
@@ -142,10 +148,27 @@ body.tema-pokemon #mvplaylist {
     transition: 0.3s;
 }
 
+body.tema-bob2 #mvplaylist li a {
+    color: #a2ffb3;
+}
+
 #mvplaylist li.bob-item.active a {
     background: linear-gradient(180deg, #00bfff 0%, #0080ff 100%) !important;
     color: white !important;
     border-left: 10px solid #f6e013;
+}
+
+#mvplaylist li.bob2-item.active a {
+    background: linear-gradient(180deg, #2f4f4f 0%, #1a3030 100%) !important;
+    color: #a2ffb3 !important;
+    border-left: 10px solid #4ade80;
+    text-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+#mvplaylist li.pokemon-item.active a {
+    background: linear-gradient(180deg, #ff0000 50%, #ffffff 50%) !important;
+    color: #333 !important;
+    border-left: 10px solid #000;
 }
 
 .anchor-icon::before {
@@ -157,10 +180,9 @@ body.tema-pokemon #mvplaylist {
     animation: floatAnchor 2s infinite ease-in-out;
 }
 
-#mvplaylist li.pokemon-item.active a {
-    background: linear-gradient(180deg, #ff0000 50%, #ffffff 50%) !important;
-    color: #333 !important;
-    border-left: 10px solid #000;
+#mvplaylist li.bob2-item.active .anchor-icon::before {
+    filter: drop-shadow(0 0 5px #4ade80);
+    color: #4ade80;
 }
 
 .pikachu {
@@ -172,7 +194,6 @@ body.tema-pokemon #mvplaylist {
     display: inline-block;
 }
 
-
 @keyframes floatAnchor {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-3px); }
@@ -183,4 +204,5 @@ body.tema-pokemon #mvplaylist {
     #youtubeVideo, #mvplayer video { width: 95% !important; }
     body::before { background-image: url('img/fondo2.jpg'); filter: blur(5px); }
     body.tema-pokemon::before { background-image: url('img/fondo3.jpg') !important; }
+    body.tema-bob2::before { background-image: url('img/fondo4.png') !important; }
 }

@@ -219,3 +219,12 @@ body.tema-mrbean #mvplaylist li a { color: #4b3018; }
     body.tema-bob2::before { background-image: url('img/fondo4.png'); }
     body.tema-mrbean::before { background: linear-gradient(180deg, #5d3a1a 0%, #2e1a0b 100%); }
 }
+
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+#youtubeVideo {
+    -webkit-transform: translate3d(0,0,0);
+    touch-action: manipulation;
+}

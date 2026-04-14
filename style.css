@@ -20,7 +20,6 @@ body::before {
     transform: scale(1.1);
     background-image: url('img/fondo1.jpg'); 
     transition: background-image 0.5s ease-in-out;
-    pointer-events: none;
 }
 
 .btnCap {
@@ -49,13 +48,6 @@ body::before {
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     padding: 0;
-}
-
-#mvplayer {
-    text-align: center;
-    position: relative;
-    top: -20px;
-    z-index: 10;
 }
 
 .texto1 {
@@ -213,12 +205,6 @@ body.tema-mrbean #mvplaylist li a { color: #4b3018; }
     background: linear-gradient(180deg, #8bba3e 0%, #6e9432 100%);
     color: white;
     border-left: 10px solid #2e1a0b;
-}
-
-#youtubeVideo, #videoPlayer {
-    position: relative;
-    z-index: 20;
-    pointer-events: auto !important;
 }
 
 /* RESPONSIVE */

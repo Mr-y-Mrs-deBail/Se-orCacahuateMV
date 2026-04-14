@@ -11,7 +11,7 @@
 
 <body>
     
-    <div class="container mt-5 text-center">
+   <div class="container mt-5 text-center">
         <img id="tituloDinamico" class="texto1" src="img/titulo03.png" alt="MV">
     </div>
     
@@ -34,7 +34,7 @@
     <div class="container mt-3">
         <div class="d-flex flex-column align-items-center">
             <button class="btn btnCap mb-3" type="button" data-toggle="collapse" data-target="#mvplaylist" aria-expanded="false" aria-controls="mvplaylist">
-                Mostrar/Ocultar Capítulos
+                Mostrar/Ocultar Películas
             </button>
             
             <div id="mvplaylist" class="collapse">
@@ -56,6 +56,13 @@
                             <img class="pikachu" src="img/pikachu.gif" alt="MV"> Pokémon 1
                         </a>
                     </li>
+
+                    <li class="bean-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1VbS3tqiwVv3Ej96Oeraz2IfHgXU50DEN', this, 'mrbean')">
+                          <img class="teddy" src="img/teddy.png" alt=""> Mr Bean
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -85,22 +92,23 @@
             
             if (tema === 'pokemon') {
                 body.classList.add('tema-pokemon');
-                body.classList.remove('tema-bob', 'tema-bob2');
-                if (titulo) {
-                    titulo.src = 'img/titulo4.png';
-                }
+                body.classList.remove('tema-bob', 'tema-bob2', 'tema-mrbean');
+                if (titulo) titulo.src = 'img/titulo4.png';
+                
             } else if (tema === 'bob2') {
                 body.classList.add('tema-bob2');
-                body.classList.remove('tema-bob', 'tema-pokemon');
-                if (titulo) {
-                    titulo.src = 'img/titulo04.png';
-                }
+                body.classList.remove('tema-bob', 'tema-pokemon', 'tema-mrbean');
+                if (titulo) titulo.src = 'img/titulo04.png';
+
+            } else if (tema === 'mrbean') {
+                body.classList.add('tema-mrbean');
+                body.classList.remove('tema-bob', 'tema-bob2', 'tema-pokemon');
+                if (titulo) titulo.src = 'img/titulo5.png'; // Título para Mr Bean
+
             } else {
                 body.classList.add('tema-bob');
-                body.classList.remove('tema-pokemon', 'tema-bob2');
-                if (titulo) {
-                    titulo.src = 'img/titulo03.png';
-                }
+                body.classList.remove('tema-pokemon', 'tema-bob2', 'tema-mrbean');
+                if (titulo) titulo.src = 'img/titulo03.png';
             }
             
             const items = document.querySelectorAll('#playlist li');

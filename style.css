@@ -211,20 +211,15 @@ body.tema-mrbean #mvplaylist li a { color: #4b3018; }
 
 @media (max-width: 767px) {
     .texto1 { max-width: 63%; }
-    #youtubeVideo, #mvplayer video { width: 95%; }
     #mvplaylist { max-width: 90%; margin: 20px auto; }
+    #youtubeVideo {
+    max-width: 100%;
+    border-radius: 12px; /* Opcional: le da un toque más moderno */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Para que resalte sobre el fondo */
+}
     
     body::before { background-image: url('img/fondo2.jpg'); }
     body.tema-pokemon::before { background-image: url('img/fondo3.jpg'); }
     body.tema-bob2::before { background-image: url('img/fondo4.png'); }
     body.tema-mrbean::before { background: linear-gradient(180deg, #5d3a1a 0%, #2e1a0b 100%); }
-}
-
-video::-webkit-media-controls {
-    display: none !important;
-}
-
-#youtubeVideo {
-    -webkit-transform: translate3d(0,0,0);
-    touch-action: manipulation;
 }

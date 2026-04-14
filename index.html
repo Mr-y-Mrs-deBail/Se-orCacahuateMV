@@ -24,6 +24,11 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
             </iframe>
         </div>
+        
+        <video id="videoPlayer" width="600" controls preload="metadata" style="display: none; margin: 0 auto;">
+            <source id="videoSource" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
     
     <div class="container mt-3">
@@ -68,45 +73,73 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script>
-       function changeVideo(idOrUrl, element, tema) {
-        
-        const youtubeVideo = document.getElementById('youtubeVideo');
-        const body = document.body;
-        const titulo = document.getElementById('tituloDinamico');
-        
-        if (idOrUrl.length > 20 && youtubeVideo) { 
-            youtubeVideo.src = `https://drive.google.com/file/d/${idOrUrl}/preview`;
-            youtubeVideo.style.display = 'block';
-        }
-        
-        body.classList.remove('tema-bob', 'tema-bob2', 'tema-pokemon', 'tema-mrbean');
-        
-        if (tema === 'pokemon') {
-            body.classList.add('tema-pokemon');
-            if (titulo) titulo.src = 'img/titulo4.png';
-        } else if (tema === 'bob2') {
-            body.classList.add('tema-bob2');
-            if (titulo) titulo.src = 'img/titulo04.png';
-        } else if (tema === 'mrbean') {
-            body.classList.add('tema-mrbean');
-            if (titulo) titulo.src = 'img/titulo5.png';
-        } else {
-            body.classList.add('tema-bob');
-            if (titulo) titulo.src = 'img/titulo03.png';
-        }
-        
-        const items = document.querySelectorAll('#playlist li');
-        items.forEach(item => item.classList.remove('active'));
-        
-        if (element) {
-            const parentLi = element.closest('li');
-            if (parentLi) {
-                parentLi.classList.add('active');
-                parentLi.classList.add('visto');
-                localStorage.setItem('visto_' + idOrUrl, 'true');
+        function changeVideo(idOrUrl, element, tema) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const youtubeVideo = document.getElementById('youtubeVideo');
+            const body = document.body;
+            const titulo = document.getElementById('tituloDinamico');
+            
+            if (idOrUrl.length > 20) { 
+                if (videoPlayer) {
+                    videoPlayer.pause();
+                    videoPlayer.style.display = 'none';
+                }
+                if (youtubeVideo) {
+                    youtubeVideo.style.display = 'block';
+                    youtubeVideo.src = `https://drive.google.com/file/d/${idOrUrl}/preview`;
+                }
+            }
+            
+            if (tema === 'pokemon') {
+                body.classList.add('tema-pokemon');
+                body.classList.remove('tema-bob', 'tema-bob2', 'tema-mrbean');
+                if (titulo) titulo.src = 'img/titulo4.png';
+                
+            } else if (tema === 'bob2') {
+                body.classList.add('tema-bob2');
+                body.classList.remove('tema-bob', 'tema-pokemon', 'tema-mrbean');
+                if (titulo) titulo.src = 'img/titulo04.png';
+
+            } else if (tema === 'mrbean') {
+                body.classList.add('tema-mrbean');
+                body.classList.remove('tema-bob', 'tema-bob2', 'tema-pokemon');
+                if (titulo) titulo.src = 'img/titulo5.png';
+
+            } else {
+                body.classList.add('tema-bob');
+                body.classList.remove('tema-pokemon', 'tema-bob2', 'tema-mrbean');
+                if (titulo) titulo.src = 'img/titulo03.png';
+            }
+            
+            const items = document.querySelectorAll('#playlist li');
+            items.forEach(item => item.classList.remove('active'));
+            
+            if (element) {
+                const parentLi = element.closest('li');
+                if (parentLi) {
+                    parentLi.classList.add('active');
+                    parentLi.classList.add('visto');
+                    localStorage.setItem('visto_' + idOrUrl, 'true');
+                }
             }
         }
-    }
+        
+        window.onload = function() {
+            const links = document.querySelectorAll('#playlist a');
+            links.forEach(link => {
+                const onclickAttr = link.getAttribute('onclick');
+                if (onclickAttr) {
+                    const match = onclickAttr.match(/'([^']+)'/);
+                    if (match) {
+                        const id = match[1];
+                        if (localStorage.getItem('visto_' + id) === 'true') {
+                            const li = link.closest('li');
+                            if (li) li.classList.add('visto');
+                        }
+                    }
+                }
+            });
+        };
     </script>
 
 </body>

@@ -248,7 +248,7 @@ body.tema-poder-sin-limite #mvplaylist li a {
 #mvplaylist li.poder-item.active a {
     background: linear-gradient(180deg, #3a4750 0%, #222831 100%);
     color: #5bc0be;
-    border-left: 10px solid #3a506b;
+    border-left: 10px solid #5bc0be;
 }
 
 /* RESPONSIVE */

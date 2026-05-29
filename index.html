@@ -51,9 +51,15 @@
                         </a>
                     </li>
 
-                    <li class="bean-item">
-                        <a href="javascript:void(0)" onclick="changeVideo('1J3JP9FfNvBNY76Jw72n26zRxqZJliyHH', this, 'mrbean')">
+                    <li class="ciudadano-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1J3JP9FfNvBNY76Jw72n26zRxqZJliyHH', this, 'ciudadanoE')">
                           <img class="teddy" src="img/cine.gif" alt=""> El Vengador
+                        </a>
+                    </li>
+
+                    <li class="poder-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1yMPvThBsZQE8k9-tL_I_dat-_DliPBFJ', this, 'poderSL')">
+                          <img class="teddy" src="img/cine.gif" alt=""> Poder Sin Limite
                         </a>
                     </li>
 
@@ -86,22 +92,28 @@
         
        if (tema === 'pokemon') {
             body.classList.add('tema-pokemon');
-            body.classList.remove('tema-bob', 'tema-mrbean');
+            body.classList.remove('tema-bob', 'tema-ciudadano', 'tema-poder-sin-limite');
             if (titulo) {
                 titulo.src = 'img/titulo4.png';
                 titulo.style.display = 'inline-block';
             }
             
-        } else if (tema === 'mrbean') {
-            body.classList.add('tema-mrbean');
-            body.classList.remove('tema-bob', 'tema-pokemon');
+        } else if (tema === 'ciudadanoE') {
+            body.classList.add('tema-ciudadano');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-poder-sin-limite');
             if (titulo) {
                 titulo.style.display = 'none';
             }
             
-        } else {
+        } else if (tema === 'poderSL') {
+            body.classList.add('tema-poder-sin-limite');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano');
+            if (titulo) { 
+            titulo.style.display = 'none';
+        } 
+    }else {
             body.classList.add('tema-bob');
-            body.classList.remove('tema-pokemon', 'tema-mrbean');
+            body.classList.remove('tema-pokemon', 'tema-ciudadano', 'tema-poder-sin-limite');
             if (titulo) {
                 titulo.src = 'img/titulo03.png';
                 titulo.style.display = 'inline-block';

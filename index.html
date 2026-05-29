@@ -45,12 +45,6 @@
                         </a>
                     </li>
                     
-                    <li class="bob2-item">
-                        <a href="javascript:void(0)" onclick="changeVideo('1E5QZ9G0qumbrDmnsF-l2ZAdqQRxCIGc6', this, 'bob2')">
-                            <span class="anchor-icon"></span>Bob Esponja 2025
-                        </a>
-                    </li>
-                    
                     <li class="pokemon-item">
                         <a href="javascript:void(0)" onclick="changeVideo('1FDFjpUcYcy0Lvf_vmV2x6HLxqF3dRlHy', this, 'pokemon')">
                             <img class="pikachu" src="img/pikachu.gif" alt="MV"> Pokémon 1
@@ -58,8 +52,8 @@
                     </li>
 
                     <li class="bean-item">
-                        <a href="javascript:void(0)" onclick="changeVideo('1VbS3tqiwVv3Ej96Oeraz2IfHgXU50DEN', this, 'mrbean')">
-                          <img class="teddy" src="img/teddy.png" alt=""> Mr Bean
+                        <a href="javascript:void(0)" onclick="changeVideo('1J3JP9FfNvBNY76Jw72n26zRxqZJliyHH', this, 'mrbean')">
+                          <img class="teddy" src="img/cine.gif" alt=""> El Vengador
                         </a>
                     </li>
 
@@ -72,75 +66,78 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <script>
-        function changeVideo(idOrUrl, element, tema) {
-            const videoPlayer = document.getElementById('videoPlayer');
-            const youtubeVideo = document.getElementById('youtubeVideo');
-            const body = document.body;
-            const titulo = document.getElementById('tituloDinamico');
-            
-            if (idOrUrl.length > 20) { 
-                if (videoPlayer) {
-                    videoPlayer.pause();
-                    videoPlayer.style.display = 'none';
-                }
-                if (youtubeVideo) {
-                    youtubeVideo.style.display = 'block';
-                    youtubeVideo.src = `https://drive.google.com/file/d/${idOrUrl}/preview`;
-                }
+   <script>
+    function changeVideo(idOrUrl, element, tema) {
+        const videoPlayer = document.getElementById('videoPlayer');
+        const youtubeVideo = document.getElementById('youtubeVideo');
+        const body = document.body;
+        const titulo = document.getElementById('tituloDinamico');
+        
+        if (idOrUrl.length > 20) { 
+            if (videoPlayer) {
+                videoPlayer.pause();
+                videoPlayer.style.display = 'none';
             }
-            
-            if (tema === 'pokemon') {
-                body.classList.add('tema-pokemon');
-                body.classList.remove('tema-bob', 'tema-bob2', 'tema-mrbean');
-                if (titulo) titulo.src = 'img/titulo4.png';
-                
-            } else if (tema === 'bob2') {
-                body.classList.add('tema-bob2');
-                body.classList.remove('tema-bob', 'tema-pokemon', 'tema-mrbean');
-                if (titulo) titulo.src = 'img/titulo04.png';
-
-            } else if (tema === 'mrbean') {
-                body.classList.add('tema-mrbean');
-                body.classList.remove('tema-bob', 'tema-bob2', 'tema-pokemon');
-                if (titulo) titulo.src = 'img/titulo5.png';
-
-            } else {
-                body.classList.add('tema-bob');
-                body.classList.remove('tema-pokemon', 'tema-bob2', 'tema-mrbean');
-                if (titulo) titulo.src = 'img/titulo03.png';
-            }
-            
-            const items = document.querySelectorAll('#playlist li');
-            items.forEach(item => item.classList.remove('active'));
-            
-            if (element) {
-                const parentLi = element.closest('li');
-                if (parentLi) {
-                    parentLi.classList.add('active');
-                    parentLi.classList.add('visto');
-                    localStorage.setItem('visto_' + idOrUrl, 'true');
-                }
+            if (youtubeVideo) {
+                youtubeVideo.style.display = 'block';
+                youtubeVideo.src = `https://drive.google.com/file/d/${idOrUrl}/preview`;
             }
         }
         
-        window.onload = function() {
-            const links = document.querySelectorAll('#playlist a');
-            links.forEach(link => {
-                const onclickAttr = link.getAttribute('onclick');
-                if (onclickAttr) {
-                    const match = onclickAttr.match(/'([^']+)'/);
-                    if (match) {
-                        const id = match[1];
-                        if (localStorage.getItem('visto_' + id) === 'true') {
-                            const li = link.closest('li');
-                            if (li) li.classList.add('visto');
-                        }
+       if (tema === 'pokemon') {
+            body.classList.add('tema-pokemon');
+            body.classList.remove('tema-bob', 'tema-mrbean');
+            if (titulo) {
+                titulo.src = 'img/titulo4.png';
+                titulo.style.display = 'inline-block';
+            }
+            
+        } else if (tema === 'mrbean') {
+            body.classList.add('tema-mrbean');
+            body.classList.remove('tema-bob', 'tema-pokemon');
+            if (titulo) {
+                titulo.style.display = 'none';
+            }
+            
+        } else {
+            body.classList.add('tema-bob');
+            body.classList.remove('tema-pokemon', 'tema-mrbean');
+            if (titulo) {
+                titulo.src = 'img/titulo03.png';
+                titulo.style.display = 'inline-block';
+            }
+        }
+        
+        const items = document.querySelectorAll('#playlist li');
+        items.forEach(item => item.classList.remove('active'));
+        
+        if (element) {
+            const parentLi = element.closest('li');
+            if (parentLi) {
+                parentLi.classList.add('active');
+                parentLi.classList.add('visto');
+                localStorage.setItem('visto_' + idOrUrl, 'true');
+            }
+        }
+    }
+    
+    window.onload = function() {
+        const links = document.querySelectorAll('#playlist a');
+        links.forEach(link => {
+            const onclickAttr = link.getAttribute('onclick');
+            if (onclickAttr) {
+                const match = onclickAttr.match(/'([^']+)'/);
+                if (match) {
+                    const id = match[1];
+                    if (localStorage.getItem('visto_' + id) === 'true') {
+                        const li = link.closest('li');
+                        if (li) li.classList.add('visto');
                     }
                 }
-            });
-        };
-    </script>
+            }
+        });
+    };
+</script>
 
 </body>
 </html>

@@ -62,6 +62,24 @@
                           <img class="teddy" src="img/cine.gif" alt=""> Tokyo Drift
                         </a>
                     </li>
+
+                    <!-- <li class="honor-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1JIIDqYsYDgvzPR1pH5l6PGnKxhtZdWEK', this, 'honor')">
+                          <img class="teddy" src="img/cine.gif" alt=""> Hombres de Honor
+                        </a>
+                    </li> -->
+
+                    <li class="arcane-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1truPULtKQCqdO1_YU91IiLHyL2xX34j7', this, 'arcane')">
+                            <img class="ico" src="img/1.png" alt="Arcane"> Cap 1
+                        </a>
+                    </li>
+                    
+                    <li class="arcane-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1QxQPTF1gfKjfAgsVWYrZbcwYQyVD2J4u', this, 'arcane')">
+                            <img class="ico" src="img/1.png" alt="Arcane"> Cap 2
+                        </a>
+                    </li>
                     
                 </ul>
             </div>
@@ -72,7 +90,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-   <script>
+  <script>
     function changeVideo(idOrUrl, element, tema) {
         const videoPlayer = document.getElementById('videoPlayer');
         const youtubeVideo = document.getElementById('youtubeVideo');
@@ -90,9 +108,9 @@
             }
         }
         
-       if (tema === 'pokemon') {
+        if (tema === 'pokemon') {
             body.classList.add('tema-pokemon');
-            body.classList.remove('tema-bob', 'tema-ciudadano', 'tema-reto-tokio');
+            body.classList.remove('tema-bob', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-honor');
             if (titulo) {
                 titulo.src = 'img/titulo4.png';
                 titulo.style.display = 'inline-block';
@@ -100,20 +118,36 @@
             
         } else if (tema === 'ciudadanoE') {
             body.classList.add('tema-ciudadano');
-            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-reto-tokio');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-reto-tokio', 'tema-arcane', 'tema-honor');
             if (titulo) {
                 titulo.style.display = 'none';
             }
             
         } else if (tema === 'retokio') {
             body.classList.add('tema-reto-tokio');
-            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-arcane', 'tema-honor');
             if (titulo) { 
-            titulo.style.display = 'none';
-        } 
-    }else {
+                titulo.style.display = 'none';
+            } 
+
+            } else if (tema === 'honor') {
+    body.classList.add('tema-honor');
+    body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane');
+    if (titulo) { 
+        titulo.style.display = 'none';
+    }
+            
+        } else if (tema === 'arcane') {
+            body.classList.add('tema-arcane');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-honor');
+            if (titulo) {
+                titulo.src = 'img/titulo5.png';
+                titulo.style.display = 'inline-block';
+            }
+            
+        } else {
             body.classList.add('tema-bob');
-            body.classList.remove('tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio');
+            body.classList.remove('tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-honor');
             if (titulo) {
                 titulo.src = 'img/titulo03.png';
                 titulo.style.display = 'inline-block';

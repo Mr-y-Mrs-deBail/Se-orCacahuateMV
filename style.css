@@ -268,6 +268,111 @@ body.tema-reto-tokio #mvplaylist li a:hover {
     font-style: italic;
 }
 
+/* Pelicula 3 */
+
+body.tema-honor::before {
+    background-image: none;
+    background: radial-gradient(circle at center, #0a1b3a 0%, #030814 100%);
+    filter: none;
+}
+
+body.tema-honor .btnCap {
+    background-color: #f4f4f6;
+    color: #0a1b3a;
+    border: 3px solid #d49a3b;
+    font-weight: bold;
+    box-shadow: 0 5px 0 #8c6221, 0 0 15px rgba(212, 154, 59, 0.3);
+}
+
+body.tema-honor .btnCap:hover {
+    background-color: #d49a3b;
+    color: #ffffff;
+    border-color: #f4f4f6;
+    box-shadow: 0 0 25px #d49a3b, 0 0 40px rgba(212, 154, 59, 0.6);
+    transform: translateY(-3px);
+}
+
+body.tema-honor #mvplaylist {
+    border: 3px solid #d49a3b;
+    background: rgba(8, 18, 38, 0.98);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
+}
+
+body.tema-honor #mvplaylist li a { 
+    color: #b0c4de;
+}
+
+body.tema-honor #mvplaylist li a:hover {
+    color: #ffffff;
+    background: rgba(212, 154, 59, 0.12);
+    padding-left: 25px;
+}
+
+#mvplaylist li.honor-item.active a {
+    background: linear-gradient(90deg, rgba(212, 154, 59, 0.25) 0%, rgba(8, 18, 38, 0) 100%);
+    color: #ffffff;
+    border-left: 10px solid #d49a3b;
+    text-shadow: 0 0 10px #ffffff, 0 0 15px rgba(212, 154, 59, 0.8);
+}
+
+/* arcane */
+
+.ico {
+    height: 1.4em; 
+    width: auto;
+    vertical-align: middle;
+    margin-left: 5px; 
+    margin-right: 5px;
+    margin-top: -5px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+body.tema-arcane::before {
+    background-image: none;
+    background: black;
+    filter: none;
+}
+
+body.tema-arcane .btnCap {
+    background: #00f0ff;
+    color: #05020a;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px #00f0ff, 0 0 20px #ff007f;
+    text-shadow: 0 0 2px #fff;
+}
+
+body.tema-arcane .btnCap:hover {
+    background: #ff007f;
+    color: #fff;
+    box-shadow: 0 0 20px #ff007f, 0 0 40px #00f0ff;
+    transform: translateY(-3px);
+}
+
+body.tema-arcane #mvplaylist {
+    border: 3px solid #ff007f;
+    background: rgba(15, 10, 25, 0.96);
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+body.tema-arcane #mvplaylist li a { 
+    color: #00f0ff;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+}
+
+body.tema-arcane #mvplaylist li a:hover {
+    color: #fff;
+    background: rgba(255, 0, 127, 0.15);
+    padding-left: 25px;
+}
+
+#mvplaylist li.arcane-item.active a {
+    background: linear-gradient(90deg, rgba(255, 0, 127, 0.2) 0%, rgba(0, 240, 255, 0.05) 100%);
+    color: #fff;
+    border-left: 10px solid #ff007f;
+    text-shadow: 0 0 8px #fff, 0 0 15px #ff007f, 0 0 30px #00f0ff;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 767px) {
@@ -283,5 +388,6 @@ body.tema-reto-tokio #mvplaylist li a:hover {
     body.tema-pokemon::before { background-image: url('img/fondo3.jpg'); }
     body.tema-mrbean::before { background: radial-gradient(circle, #20242c 0%, #0d0f12 100%); }
     body.tema-reto-tokio::before { background: radial-gradient(circle at center, #1c110a 0%, #060608 100%); }
+    body.tema-arcane::before { background: black; }
 
 }

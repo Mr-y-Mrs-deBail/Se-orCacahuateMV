@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" id="meta-theme" content="#00bfff">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/bob01.gif" type="image/gif">
@@ -107,9 +106,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
-    <script>
-        function changeVideo(idOrUrl, element, tema) {
+
+  <script>
+    function changeVideo(idOrUrl, element, tema) {
         const videoPlayer = document.getElementById('videoPlayer');
         const youtubeVideo = document.getElementById('youtubeVideo');
         const body = document.body;
@@ -148,24 +147,24 @@
                 titulo.style.display = 'none';
             } 
 
-        } else if (tema === 'honor') {
-            body.classList.add('tema-honor');
-            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-sakura');
-            if (titulo) { 
-                titulo.style.display = 'none';
-            } 
-        } else if (tema === 'sakuraCC') {
-            body.classList.add('tema-sakura');
-            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane');
-            if (titulo) { 
-                titulo.style.display = 'none';
-            }
+            } else if (tema === 'honor') {
+    body.classList.add('tema-honor');
+    body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-sakura');
+    if (titulo) { 
+        titulo.style.display = 'none';
+    } 
+} else if (tema === 'sakuraCC') {
+    body.classList.add('tema-sakura');
+    body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane');
+    if (titulo) { 
+        titulo.style.display = 'none';
+    }
             
         } else if (tema === 'arcane') {
             body.classList.add('tema-arcane');
             body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-honor', 'tema-sakura');
             if (titulo) {
-                titulo.style.display = 'none';
+                        titulo.style.display = 'none';
             }
             
         } else {
@@ -188,24 +187,6 @@
                 localStorage.setItem('visto_' + idOrUrl, 'true');
             }
         }
-
-        const coloresTemas = {
-            'bob': '#f6e013',
-            'pokemon': '#ff0000',
-            'bob2': '#2f4f4f',
-            'ciudadanoE': '#2b3a4a',
-            'retokio': '#ff5500',
-            'honor': '#0a1b3a',
-            'arcane': '#05020a',
-            'sakuraCC': '#0b0f19'
-        };
-
-        const metaTheme = document.getElementById('meta-theme');
-        if (metaTheme && coloresTemas[tema]) {
-            metaTheme.setAttribute('content', coloresTemas[tema]);
-        } else if (metaTheme) {
-            metaTheme.setAttribute('content', '#f6e013'); 
-        }
     }
     
     window.onload = function() {
@@ -224,7 +205,7 @@
             }
         });
     };
-    </script>
+</script>
 
 </body>
 </html>

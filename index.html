@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" id="meta-theme" content="#00bfff">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/bob01.gif" type="image/gif">
@@ -34,15 +35,14 @@
     <div class="container mt-3">
         <div class="d-flex flex-column align-items-center">
             <button class="btn btnCap mb-3" type="button" data-toggle="collapse" data-target="#mvplaylist" aria-expanded="false" aria-controls="mvplaylist">
-                Mostrar/Ocultar Películas
+                
             </button>
             
             <div id="mvplaylist" class="collapse">
                 <ul class="list-unstyled" id="playlist">
                     <li class="bob-item active">
                         <a href="javascript:void(0)" onclick="changeVideo('1o0KOcrho5tQ0smnimbN32brxWeQXm-TN', this, 'bob')">
-                            <span class="anchor-icon"></span>Bob Esponja
-                        </a>
+                            <span class="anchor-icon">⚓</span> Bob Esponja                        </a>
                     </li>
                     
                     <li class="pokemon-item">
@@ -86,6 +86,18 @@
                             <img class="ico" src="img/1.png" alt="Arcane"> Cap 4
                         </a>
                     </li>
+
+                    <li class="sakura-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1g-yqIMH_H8wegkMkxsj38jkcyK5QUzx9', this, 'sakuraCC')">
+                            <img class="ico" src="img/kero.png" alt="Sakura"> Cap 1
+                        </a>
+                    </li>
+
+                    <li class="sakura-item">
+                        <a href="javascript:void(0)" onclick="changeVideo('1pn8uHU-sE0LC3-AtXtgLL3EMECyyyCg2', this, 'sakuraCC')">
+                            <img class="ico" src="img/kero.png" alt="Sakura"> Cap 2
+                        </a>
+                    </li>
                     
                 </ul>
             </div>
@@ -95,9 +107,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <script>
-    function changeVideo(idOrUrl, element, tema) {
+    
+    <script>
+        function changeVideo(idOrUrl, element, tema) {
         const videoPlayer = document.getElementById('videoPlayer');
         const youtubeVideo = document.getElementById('youtubeVideo');
         const body = document.body;
@@ -116,7 +128,7 @@
         
         if (tema === 'pokemon') {
             body.classList.add('tema-pokemon');
-            body.classList.remove('tema-bob', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-honor');
+            body.classList.remove('tema-bob', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-honor','tema-sakura');
             if (titulo) {
                 titulo.src = 'img/titulo4.png';
                 titulo.style.display = 'inline-block';
@@ -124,36 +136,41 @@
             
         } else if (tema === 'ciudadanoE') {
             body.classList.add('tema-ciudadano');
-            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-reto-tokio', 'tema-arcane', 'tema-honor');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-reto-tokio', 'tema-arcane', 'tema-honor', 'tema-sakura');
             if (titulo) {
                 titulo.style.display = 'none';
             }
             
         } else if (tema === 'retokio') {
             body.classList.add('tema-reto-tokio');
-            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-arcane', 'tema-honor');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-arcane', 'tema-honor', 'tema-sakura');
             if (titulo) { 
                 titulo.style.display = 'none';
             } 
 
-            } else if (tema === 'honor') {
-    body.classList.add('tema-honor');
-    body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane');
-    if (titulo) { 
-        titulo.style.display = 'none';
-    }
+        } else if (tema === 'honor') {
+            body.classList.add('tema-honor');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-sakura');
+            if (titulo) { 
+                titulo.style.display = 'none';
+            } 
+        } else if (tema === 'sakuraCC') {
+            body.classList.add('tema-sakura');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane');
+            if (titulo) { 
+                titulo.style.display = 'none';
+            }
             
         } else if (tema === 'arcane') {
             body.classList.add('tema-arcane');
-            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-honor');
+            body.classList.remove('tema-bob', 'tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-honor', 'tema-sakura');
             if (titulo) {
-                titulo.src = 'img/titulo5.png';
-                titulo.style.display = 'inline-block';
+                titulo.style.display = 'none';
             }
             
         } else {
             body.classList.add('tema-bob');
-            body.classList.remove('tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-honor');
+            body.classList.remove('tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-honor', 'tema-sakura');
             if (titulo) {
                 titulo.src = 'img/titulo03.png';
                 titulo.style.display = 'inline-block';
@@ -170,6 +187,24 @@
                 parentLi.classList.add('visto');
                 localStorage.setItem('visto_' + idOrUrl, 'true');
             }
+        }
+
+        const coloresTemas = {
+            'bob': '#f6e013',
+            'pokemon': '#ff0000',
+            'bob2': '#2f4f4f',
+            'ciudadanoE': '#2b3a4a',
+            'retokio': '#ff5500',
+            'honor': '#0a1b3a',
+            'arcane': '#05020a',
+            'sakuraCC': '#0b0f19'
+        };
+
+        const metaTheme = document.getElementById('meta-theme');
+        if (metaTheme && coloresTemas[tema]) {
+            metaTheme.setAttribute('content', coloresTemas[tema]);
+        } else if (metaTheme) {
+            metaTheme.setAttribute('content', '#f6e013'); 
         }
     }
     
@@ -189,7 +224,7 @@
             }
         });
     };
-</script>
+    </script>
 
 </body>
 </html>

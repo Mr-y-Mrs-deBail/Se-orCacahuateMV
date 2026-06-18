@@ -3,7 +3,6 @@ body {
     padding: 0;
     min-height: 100vh;
     position: relative;
-    background-color: #00bfff;
     overflow-x: hidden;
 }
 
@@ -33,6 +32,14 @@ body::before {
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 5px 0 #d1bd0a;
+}
+
+.btnCap[aria-expanded="false"]::before {
+    content: "Mostrar Películas";
+}
+
+.btnCap[aria-expanded="true"]::before {
+    content: "Ocultar Películas";
 }
 
 #mvplaylist {
@@ -65,22 +72,32 @@ body::before {
 }
 
 #mvplaylist li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     color: #0076a3;
     padding: 12px 20px;
-    display: block;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
 }
 
 /* Iconos */
-.anchor-icon::before {
-    content: "⚓";
-    font-size: 18px;
-    margin-right: 10px;
+
+#mvplaylist li a img, 
+.anchor-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
     display: inline-block;
-    vertical-align: middle;
-    animation: floatAnchor 2s infinite ease-in-out;
+    flex-shrink: 0;
+    margin: 0 !important;
+}
+
+.anchor-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pikachu {
@@ -373,21 +390,82 @@ body.tema-arcane #mvplaylist li a:hover {
     text-shadow: 0 0 8px #fff, 0 0 15px #ff007f, 0 0 30px #00f0ff;
 }
 
+/* sakura */
+
+body.tema-sakura::before {
+    background-image: none;
+    background: #0b0f19;
+    filter: none;
+}
+
+body.tema-sakura .btnCap {
+    background: #ff9ebb;
+    color: #0b0f19;
+    border: 3px solid #f4cf65;
+    box-shadow: 0 0 15px rgba(255, 158, 187, 0.6), 0 0 5px rgba(244, 207, 101, 0.4); 
+    text-shadow: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+body.tema-sakura .btnCap:hover {
+    background: #fff5f7;
+    color: #ff5e8d;
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 158, 187, 0.9), 0 0 15px rgba(255, 215, 0, 0.6);
+    transform: translateY(-3px);
+}
+
+body.tema-sakura #mvplaylist {
+    border: 3px solid #ffb7c5;
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 0 25px rgba(255, 158, 187, 0.2), inset 0 0 15px rgba(244, 207, 101, 0.1);
+}
+
+body.tema-sakura #mvplaylist li a { 
+    color: #ffcbd5;
+    text-shadow: 0 0 5px rgba(255, 158, 187, 0.4);
+    transition: all 0.2s ease;
+}
+
+body.tema-sakura #mvplaylist li a:hover {
+    color: #ffd700;
+    background: rgba(255, 158, 187, 0.15);
+    padding-left: 25px;
+}
+
+#mvplaylist li.sakura-item.active a {
+    background: linear-gradient(90deg, rgba(255, 158, 187, 0.25) 0%, rgba(244, 207, 101, 0.05) 100%);
+    color: #fff5f7;
+    border-left: 10px solid #ff5e8d;
+    text-shadow: 0 0 8px rgba(255, 158, 187, 0.8), 0 0 15px #ff9ebb;
+}
+
+
 /* RESPONSIVE */
 
 @media (max-width: 767px) {
     .texto1 { max-width: 63%; }
+    
+    .btnCap {
+        font-size: 14px;
+        padding: 8px 16px;
+        border-width: 2px;
+        max-width: 85%;
+        text-transform: none;
+    }
+
     #mvplaylist { max-width: 90%; margin: 20px auto; }
     #youtubeVideo {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
 
     body::before { background-image: url('img/fondo2.jpg'); }
     body.tema-pokemon::before { background-image: url('img/fondo3.jpg'); }
     body.tema-mrbean::before { background: radial-gradient(circle, #20242c 0%, #0d0f12 100%); }
     body.tema-reto-tokio::before { background: radial-gradient(circle at center, #1c110a 0%, #060608 100%); }
     body.tema-arcane::before { background: black; }
-
+    body.tema-sakura::before { background: #0b0f19; }
 }

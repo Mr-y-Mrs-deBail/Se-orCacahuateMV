@@ -18,7 +18,7 @@ body::before {
     background-attachment: fixed;
     filter: blur(8px);
     transform: scale(1.1);
-    background-image: url('img/fondo1.jpg');
+    background-image: url('img/fondo4.jpg');
     transition: background-image 0.5s ease-in-out;
 }
 
@@ -463,7 +463,7 @@ body.tema-sakura #mvplaylist li a:hover {
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
-    body::before { background-image: url('img/fondo2.jpg'); }
+    body::before { background-image: url('img/fondo3.jpg'); }
     body.tema-pokemon::before { background-image: url('img/fondo3.jpg'); }
     body.tema-mrbean::before { background: radial-gradient(circle, #20242c 0%, #0d0f12 100%); }
     body.tema-reto-tokio::before { background: radial-gradient(circle at center, #1c110a 0%, #060608 100%); }

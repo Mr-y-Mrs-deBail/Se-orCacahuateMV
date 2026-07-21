@@ -12,13 +12,13 @@
 <body>
     
    <div class="container mt-5 text-center">
-        <img id="tituloDinamico" class="texto1" src="img/titulo03.png" alt="MV">
+        <img id="tituloDinamico" class="texto1" src="img/titulo4.png" alt="MV">
     </div>
     
     <div id="mvplayer" class="container mt-5">
         <div class="d-flex justify-content-center align-items-center" style="height: auto; width: 100%;">
             <iframe id="youtubeVideo" width="600" height="340" 
-            src="https://drive.google.com/file/d/1g9SqeM_f1o-LK-KFwYmS_Jf25uOh__DM/preview" 
+            src="https://drive.google.com/file/d/1FDFjpUcYcy0Lvf_vmV2x6HLxqF3dRlHy/preview" 
             title="Video player" frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -40,13 +40,13 @@
             <div id="mvplaylist" class="collapse">
                 <ul class="list-unstyled" id="playlist">
                     
-                    <li class="bob-item active">
+                    <!-- <li class="bob-item active">
                         <a href="javascript:void(0)" onclick="changeVideo('1g9SqeM_f1o-LK-KFwYmS_Jf25uOh__DM', this, 'bob')">
                             <span class="anchor-icon">⚓</span> Bob Esponja                        
                         </a>
-                    </li>
+                    </li> -->
                     
-                    <li class="pokemon-item">
+                    <li class="pokemon-item active">
                         <a href="javascript:void(0)" onclick="changeVideo('1FDFjpUcYcy0Lvf_vmV2x6HLxqF3dRlHy', this, 'pokemon')">
                             <img class="pikachu" src="img/pikachu.gif" alt="MV"> Pokémon 1
                         </a>
@@ -65,8 +65,8 @@
                     </li>
 
                     <li class="honor-item">
-                        <a href="javascript:void(0)" onclick="changeVideo('1CHkXdMSN3qZJPEHcIBmzrul1W90AgYd2', this, 'honor')">
-                          <img class="teddy" src="img/cine.gif" alt=""> Hombres de Honor
+                        <a href="javascript:void(0)" onclick="changeVideo('1PE1nGzL-8B_RjK7M6dimKtPzqZQZ-e6m', this, 'honor')">
+                          <img class="teddy" src="img/cine.gif" alt=""> Finch
                         </a>
                     </li>
                     
@@ -94,11 +94,11 @@
                         </a>
                     </li> -->
 
-                    <li class="sakura-item">
+                    <!-- <li class="sakura-item">
                         <a href="javascript:void(0)" onclick="changeVideo('1pn8uHU-sE0LC3-AtXtgLL3EMECyyyCg2', this, 'sakuraCC')">
                             <img class="ico" src="img/kero.png" alt="Sakura"> Cap 2
                         </a>
-                    </li>
+                    </li> -->
                     
                 </ul>
             </div>
@@ -169,7 +169,8 @@
                         titulo.style.display = 'none';
             }
             
-        } else {
+        } 
+        else {
             body.classList.add('tema-bob');
             body.classList.remove('tema-pokemon', 'tema-ciudadano', 'tema-reto-tokio', 'tema-arcane', 'tema-honor', 'tema-sakura');
             if (titulo) {

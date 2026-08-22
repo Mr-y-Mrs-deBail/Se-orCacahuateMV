@@ -224,7 +224,7 @@ body.tema-ciudadano #mvplaylist {
 
 body.tema-ciudadano #mvplaylist li a { 
     color: #8a9ba8;
-}
+} 
 
 body.tema-ciudadano #mvplaylist li.ciudadano-item.active a {
     background: linear-gradient(180deg, #2b3a4a 0%, #121820 100%);
